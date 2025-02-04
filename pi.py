@@ -12,15 +12,16 @@ Discussion and Collaboration with Ben Watson and Eamonn McHugh
 
 from mpi4py import MPI
 import numpy as np
+from math import fsum
 
 #comm world communicates all mpi processes.
 comm = MPI.COMM_WORLD
 
 #number of total processors used (defined from the job script)
 nproc = comm.Get_size()
-
+print(nproc)
 #number of points
-N = 100000000
+N = 200000000
 
 #Initialisation of The intergral
 I = 0
@@ -69,15 +70,15 @@ if comm.Get_rank() == 0:
         comm.send(x_points[i, :], dest=i)
 
     #after sending message, calculates own workload
-    results[0] = np.sum(integrand(x_points[0, :]) * DELTA)
+    results[0] = fsum(integrand(x_points[0, :]) * DELTA)
     #recieve results from other processors
     for i in range(1, nproc):
         results[i] = comm.recv(source=i)
 
-    I = np.sum(results)
+    I = fsum(results)
     print(f"Calculated Pi\n = {I:.15f} \nNumPy Pi\n = {np.pi:.15f}")
     print(f"Match = {f'{I:.15f}' == f'{np.pi:.15f}'}")
 else:
     x_data = comm.recv(source = 0)
-    results = np.sum(integrand(x_data) * DELTA)
+    results = fsum(integrand(x_data) * DELTA)
     comm.send(results, dest = 0)
