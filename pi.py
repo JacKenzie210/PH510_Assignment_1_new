@@ -10,10 +10,9 @@ Discussion and Collaboration with Ben Watson and Eamonn McHugh
 
 """
 
-from mpi4py import MPI
-import numpy as np
 from math import fsum
-
+import numpy as np
+from mpi4py import MPI
 #comm world communicates all mpi processes.
 comm = MPI.COMM_WORLD
 
