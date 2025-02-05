@@ -18,7 +18,6 @@ comm = MPI.COMM_WORLD
 
 #number of total processors used (defined from the job script)
 nproc = comm.Get_size()
-print(nproc)
 #number of points
 N = 200000000
 
