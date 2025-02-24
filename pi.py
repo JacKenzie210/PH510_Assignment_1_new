@@ -7,7 +7,6 @@ Last edited on Mon Feb 3 2025
 @author: Jack MacKenzie 
 
 Discussion and Collaboration with Ben Watson and Eamonn McHugh
-
 """
 
 from math import fsum
