@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Results-11720573.out
+Comment=Open '/users/xdb20131/Year_5/Assignment_1/Results-11720573.out'
+Icon=text-x-generic
+Name[POSIX]=Results-11720573.out
+Comment[POSIX]=Open '/users/xdb20131/Year_5/Assignment_1/Results-11720573.out'
+Icon[POSIX]=text-x-generic
+URL=file:///users/xdb20131/Year_5/Assignment_1/Results-11720573.out
+Type=Link
